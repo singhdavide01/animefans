@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>AnimeFans - Home</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link href="/assets/pics/images/AF blue.jpg" rel="icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <link href="/assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="/assets/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet">
+  <!-- ^this link with tempusdominus can be commented and doesn't affect a lot -->
+  <link href="/assets/css/style.css" rel="stylesheet">
+  <style>
+    #draggedElement {
+      width: 200px;
+      background-color: #f8f8f8;
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      cursor: move;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    #cartSection {
+      width: 200px;
+      height: 300px;
+      border: 2px dashed gray;
+      margin-top: 20px;
+      padding: 10px;
+      overflow-y: auto;
+    }
+
+    .cartItem {
+      margin-bottom: 10px;
+    }
+
+    .mangaCover {
+      width: 100%;
+      height: 200px;
+      background-color: #fff;
+      background-image: url('manga-cover.jpg');
+      background-position: center;
+      background-size: cover;
+      border: 1px solid #ddd;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .mangaTitle {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .mangaPrice {
+      margin-top: 5px;
+      color: #888;
+    }
+
+    .selectedVolume {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .volumeSelectWrapper {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .cartItem.showVolumeSelect .volumeSelectWrapper {
+      display: block;
+    }
+
+    .cartItem.showVolumeSelect .mangaCover {
+      display: none;
+    }
+
+    .mangaTitle:empty {
+      margin-bottom: 0;
+    }
+  </style>
+  <style>
+    /* body {
+      margin: 0;
+      padding: 0;
+      position: relative;  
+    } */
+
+    .left-sidebar {
+      position: fixed;
+      bottom: 20px;
+      /* Adjust the distance from the bottom */
+      left: 20px;
+      /* Adjust the distance from the left */
+      width: 50px;
+      /* Adjust the width of the sidebar to accommodate the icon */
+      color: black;
+      background-color: #f0f0f0;
+      /* v111 */
+      /* Add other styling for the sidebar like height, padding, etc. */
+    }
+
+    .account-settings {
+      position: relative;
+      /* Add this to keep the icon fixed in its current position */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      /* Adjust the height of the icon container */
+    }
+
+    .account-settings i {
+      font-size: 22px;
+      /* Adjust the size of the icon */
+      cursor: pointer;
+    }
+
+    .account-buttons {
+      opacity: 0;
+      /* Initially set opacity to 0 */
+      visibility: hidden;
+      /* Initially hide the buttons */
+      position: absolute;
+      bottom: 60px;
+      /* Adjust the distance from the bottom */
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .account-button {
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      cursor: pointer;
+      background-color: transparent;
+      /* Remove the background color */
+    }
+
+    .account-button i {
+      font-size: 22px;
+      /* Adjust the size of the icon */
+    }
+
+    /* .account-button:hover {
+        background-color: #fff;
+    }  */
+  </style>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .stlk7ud {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      /* display: none; */
+      /* align-items: stretch; */
+      width: 800px;
+      height: 400px;
+      /* background-color: #E6E6E6; */
+      background-color: white;
+      justify-content: center;
+      border-radius: 10px;
+      /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); */
+      overflow: hidden;
+      z-index: 9999; /* Higher z-index to overlay the background */
+    }
+
+    .kwjevfh {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 20px;
+      width: 60px; /* Adjust the width to fit the icons */
+      z-index: 1; /* Lower z-index to keep it below the section */
+    } 
+
+    .sbekgjd {
+      flex: 1;
+      padding: 20px;
+      text-align: center;
+      height: 450px;
+    }
+
+    .sbekgjd h2 {
+      /* color: #3498db; */
+      color: black;
+      margin-bottom: 10px;
+    }
+
+    .sbekgjd p {
+      color: #666;
+    }
+
+    .sutbijyfik {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      /* visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s, opacity 0.3s; */
+    } 
+  </style>
+  <style>
+    /* Initially hide the button */
+    /* .elemt .bton {
+      display: none;
+    } */
+  
+    /* Show the button when hovering over the parent element */
+    /* .elemt:hover .bton {
+      display: block;
+    } */
+  
+    /* Some basic styles for the button */
+    /* .bton {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    } */
+  </style>
+  <style>
+    /* Apply basic styling to the grid container */
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+
+    /* Style each grid item */
+    .grid-item {
+        border: 1px solid #000000;
+        padding: 10px;
+        text-align: center;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .grid-item img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Add animation when hovering over grid items */
+    .grid-item:hover {
+        transform: translateY(-5px); /* Move the item up slightly on hover */
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    }
+
+    /* Add additional styling as desired, e.g., background colors, fonts, etc. */
+
+  </style>
+</head>
+<body>
+  <div class="sticky-top">
+    <div class="container-fluid position-relative nav-bar p-0 ">
+      <div class=" position-relative " style="z-index: 9;">
+        <nav id="nav" class="navbar navbar-expand-lg bg-light navbar-light">
+          <a href="/htms/index.html" id="cf">
+            <img id="one" class="bottom" src="/assets/pics/images/change-light-anime-fanatics.jpg" height="38"
+              data-atf="1" data-frt="0">
+            <img id="two" class="top" src="/assets/pics/images/light dark anime fanatics.jpg" height="38" data-atf="1"
+              data-frt="0">
+            <!-- <img id="one" class="bottom" src="/assets/pics/images/a5.jpg" height="38" data-atf="1" data-frt="0">
+            <img id="two" class="top" src="/assets/pics/images/a3.jpg" height="38" data-atf="1" data-frt="0"> -->
+          </a>
+          <!-- <button id="toggler" type="button" class="navbar-toggler btn btn-lg btn-light" data-toggle="collapse" data-target="#navbarCollapse">
+            <span id="toggler" class="navbar-toggler-icon btn btn-lg btn-light"></span>
+          </button> -->
+          <button type="button" class="btn btn-lg btn-light" data-toggle="collapse" data-target="#navbarCollapse"><i
+              class="fa fa-bars"></i></button>
+          <div class="collapse navbar-collapse justify-content-between " id="navbarCollapse">
+            <div class="navbar-nav ml-auto ">
+              <ul class=" ul d-flex justify-content-start">
+                <li>
+                  <div id="arch" class="search-bar justify-content-center mr-5">
+                    <form id="rch" class="search-form d-flex align-items-center" method="POST" action="#">
+                      <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+                      <button type="submit" title="Search"><i id="icon"
+                          class="search-icon-dark fa fa-search"></i></button>
+                    </form>
+                  </div>
+                </li>
+                <li><a class="btn btn-lg  active btn-light mr-1" title="Home" href="/htms/index.html">
+                    <i class="fa fa-adjust fa-home"></i>
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.<style>svg{fill:#000000}</style><path d="M543.8 287.6c17 0 32-14 32-32.1c1-9-3-17-11-24L309.5 7c-6-5-14-7-21-7s-15 1-22 8L10 231.5c-7 7-10 15-10 24c0 18 14 32.1 32 32.1h32V448c0 35.3 28.7 64 64 64H230.4l-31.3-52.2c-4.1-6.8-2.6-15.5 3.5-20.5L288 368l-60.2-82.8c-10.9-15 8.2-33.5 22.8-22l117.9 92.6c8 6.3 8.2 18.4 .4 24.9L288 448l38.4 64H448.5c35.5 0 64.2-28.8 64-64.3l-.7-160.2h32z"/></svg>   -->
+                  </a></li>
+                <li><a class="btn btn-lg btn-light mr-1" title="Manga" href="/htms/manga.html"><i
+                      class="fa fa-adjust fa-book-open"></i></a></li>
+                <li><a class="btn btn-lg  btn-light mr-1" title="Cosplay Dresses" href="/htms/cosplay.html"><i
+                      class="fa fa-adjust fa-user-astronaut"></i></a></li>
+                <li><a class="btn btn-lg  btn-light mr-1" title="Anime Toys" href="/htms/toys.html"><i
+                      class="fa fa-adjust fa-dragon"></i></a></li>
+                <li><a class="btn btn-lg  btn-light mr-1" title="About us" href="/htms/about.html"><i
+                      class="fa fa-adjust fa-info"></i></a></li>
+                <!-- <li><a class="btn btn-lg  btn-light mr-1" title="Item" href="/htms/item.html"><i
+                      class="fa fa-adjust fa-award"></i></a></li> -->
+                <li><a class="btn btn-lg  btn-light nav-item dropdown dropdown-toggle mr-1" title="List"
+                    data-toggle="dropdown" href="#"><i class="fa fa-adjust fa fa-list "></i></a>
+                  <div class="dropdown-menu dropdown-menu-right ">
+                    <a href="/htms/blog.html" class="dropdown-item "><i class="fa fa-blog"></i> Blog</a>
+                    <a href="/htms/single.html" class="dropdown-item"><i class="fa fa-file-prescription"></i>
+                      Details</a>
+                    <a href="/htms/destination.html" class="dropdown-item"><i class="fa fa-place-of-worship"></i>
+                      Destinations</a>
+                    <a href="/htms/testimonial.html" class="dropdown-item"><i
+                        class="fa fa-list-alt "></i>Testimonial</a>
+                  </div>
+                </li>
+                <li><a id="cart-handle" class="btn btn-lg btn-light mr-1" title="cart"><i
+                      class="fa fa-adjust fa-cart-plus"></i></a></li>
+              </ul>
+              <button onclick="myFunction()" class="btn btn-lg btn-light"><i class="fa fa-adjust" title="theme"></i></button>
+            </div>
+          </div>
+      </div>
+      </nav>
+    </div>
+  </div>
+  <div id="cart-bar" class="bg-color" ondrop="dropElement(event)" ondragover="allowDrop(event)">
+    <h5 class="text-center mt-2">Your Cart</h5>
+    <!-- text-primary v111 -->
+    <!-- <ul id="cart-items">
+            <li>
+                <img src="product1.jpg" alt="Product 1">
+                <div class="item-details">
+                    <h3>Product 1</h3>
+                    <p>Price: $10.99</p>
+                    <p>Quantity: 1</p>
+                </div>
+            </li>
+            <li>
+                <img src="product2.jpg" alt="Product 2">
+                <div class="item-details">
+                    <h3>Product 2</h3>
+                    <p>Price: $19.99</p>
+                    <p>Quantity: 2</p>
+                </div>
+            </li> 
+        </ul> -->
+    <!-- <div id="cart-total">
+            <p>Total: $50.97</p>
+            <a href="checkout.html">Proceed to Checkout</a>
+        </div> -->
+  </div>
+  <!-- <div class="container-fluid pt-lg-5">
+        <div id="header-carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item ">
+                    <img class=" " src="/assets/pics/images/charles-chen-unsplash.jpg" alt="Image" height="400px">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 1900px;">
+                            <h4 class="text-white text-uppercase mb-md-3">cosplay dresses</h4>
+                            <h3 class="display-3 text-white mb-md-4">Increase your joy by dressing up like your
+                                faviorate Characters</h3>
+                            <a href="/htms/cosplay.html" class="btn btn-primary py-md-3 px-md-5 mt-2">Look for cosplay's</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item active">
+                    <img class=" " src="/assets/pics/images/dex-ezekiel-unsplash-manga.jpg" alt="Image" height="400px" width="1400px" >
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h4 class="text-white text-uppercase mb-md-3">Manga</h4>
+                            <h3 class="display-3 text-white mb-md-4">Discover Amazing New Worlds & enjoy the journey
+                                with friends</h3>
+                            <a href="/htms/manga.html" class="btn btn-primary py-md-3 px-md-5 mt-2">Search here</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class=" " src="/assets/pics/images/melvin-chavez-unsplash-toys.jpg" alt="Image" height="400px" width="1400px">
+
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h4 class="text-white text-uppercase mb-md-3">Toys</h4>
+                            <h3 class="display-3 text-white mb-md-4">Anime toys available too, Buy as much you like</h3>
+                            <a href="/htms/toys.html" class="btn btn-primary py-md-3 px-md-5 mt-2">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
+                <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                    <span class="carousel-control-prev-icon mb-n2"></span>
+                </div>
+            </a>
+
+            <a class="carousel-control-next" href="#header-carousel" data-slide="next">
+                <i class="btn btn-dark" style="width: 45px; height: 45px;">
+                    <span class="carousel-control-next-icon mb-n2"></span>
+                </i>
+            </a>
+        </div>
+  </div>  -->
+  <!-- ^carousel with images primitive version -->
+  <!-- <div class="container-fluid bg-ab pt-3 d-lg-block"> -->
+  <!-- ^interesting -->
+  <div id="background" class="container-fluid bg-color pt-3 d-lg-block">
+    <div class="container">
+      <div class="row"></div>
+    </div>
+    <!-- ^setting the website -->
+    <div class="container-fluid mt-4">
+      <div class="container">
+        <h5 class="text-primary text-uppercase text-right" style="letter-spacing: 0px;">GOODS</h5>
+        <div id="image-container" class="owl-carousel testimonial-carousel mt-4">
+          <!-- <div class="service-item bg-image-manga text-center text-white mb-2 py-5 px-4"></div>
+          <div class="service-item bg-image-cosplay text-center text-white mb-2 py-5 px-4"></div>
+          <div class="service-item bg-image-toys text-center text-white mb-2 py-5 px-4"></div>  -->
+          <div class="fa service-item bg-images text-center text-white mb-2">
+            <a href="manga.html"><img src="/assets/pics/images/miika-laaksonen-unsplash-readingmanga.jpg"
+                alt="Image 1"></a>
+          </div>
+          <div class="fa service-item bg-images text-center text-white mb-2">
+            <a href="cosplay.html"><img src="/assets/pics/images/nathalia-segato-unsplash-cosplay.jpg"
+                alt="Image 2"></a>
+          </div>
+          <div class="fa service-item bg-images text-center text-white mb-2" id="active">
+            <a href="toys.html"><img src="/assets/pics/images/denji-f-cod1.webp" alt="Image 3"></a>
+          </div>
+        </div>
+        <div class="owl-nav text-right mt-3">
+          <ul>
+            <button class="carousel-prev btn btn-lg btn-light">&#8249;</button>
+            <button class="carousel-next btn btn-lg btn-light">&#8250;</button>
+          </ul>
+        </div>
+        <!-- ^image slide bar -->
+        <!-- <div class="object-container"> 
+          <div class="icon-container">
+              <i class="fa fa-car active"></i>
+              <i class="fa fa-bicycle"></i>
+              <i class="fa fa-plane"></i>
+              <i class="fa fa-ship"></i>
+              <i class="fa fa-fighter-jet"></i>
+              <i class="fa fa-space-shuttle"></i>
+          </div>
+          <div class="arrow-buttons">
+              <button class="right-arrow" id="right-arrow"></button>
+              <button class="left-arrow" id="left-arrow"></button>
+          </div>
+        </div> -->
+        <!-- ^new code for slide buttons -->
+        <!-- <div class="container-fluid py-5">
+          <div class="container pt-3">
+            <div class=" mb-3 pb-3">
+              <h5 class="text-primary text-uppercase" style="letter-spacing: 0px;">Services</h5>
+            </div>
+            <div class="row">
+              <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-item bg-transparent text-center mb-2 py-5 px-4">
+                  <a href="manga.html"><i class="fa fa-2x fa-book-open mx-auto mb-4"></i></a>
+                  <h5 class="mb-2">Manga</h5>
+                  <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est
+                    amet labore</p>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-item bg-transparent text-center mb-2 py-5 px-4">
+                  <a href="cosplay.html"><i class="fa fa-2x fa-user-astronaut mx-auto mb-4"></i></a>
+                  <h5 class="mb-2">Cosplay Dresses</h5>
+                  <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est
+                    amet labore</p>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-item bg-transparent text-center mb-2 py-5 px-4">
+                  <a href="toys.html"><i class="fa fa-2x fa-dragon mx-auto mb-4"></i></a>
+                  <h5 class="mb-2">Anime Toys</h5>
+                  <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est
+                    amet labore</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <!-- ^services icons -->
+      </div>
+    </div>
+    <!-- ^Initial welcome slide + services section -->
+    <!-- <div class="container-fluid mt-xl-5 py-5">
+      <h5 class="text-primary text-uppercase text-right" style="letter-spacing: 0px;">Search Here</h5>
+      <div id="search" class=" mt-4 bg-light"> 
+        <div class="shadow" style="padding: 30px;">
+          <div class="row align-items-center" style="min-height: 60px;">
+            <div class="col-md-10">
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="mb-3 mb-md-0">
+                    <div class="search-anime " data-target-input="nearest">
+                      <select class="custom-select px-4" style="height: 47px;">
+                        <option selected >Manga</option>
+                        <option value="1">Cosplay dresses</option>
+                        <option value="2">Toys</option>
+                        <option value="3">All catagories</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="mb-3 mb-md-0">
+                    <div class="search-anime" data-target-input="nearest">
+                      <input type="text" class="form-control bg-light q-4 " placeholder="Manga Name" data-target="#date1"
+                        data-toggle="datetimepicker">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="mb-3 mb-md-0">
+                    <div class="search-character  " data-target-input="nearest">
+                      <input type="text" class="form-control bg-light q-4 " placeholder="Character Name" data-target="#date2"
+                        data-toggle="datetimepicker">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="mb-3 mb-md-0">
+                    <div class="search  " data-target-input="nearest">
+                      <input type="text" class="form-control bg-light q-4 " placeholder="Search" data-target="#date2"
+                        data-toggle="datetimepicker" maxlength="255">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <button id="search-btn" class="btn btn-block btn-outline-primary" type="submit"><i class="fa fa-search"></i> </button>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- ^Search Here section -->
+    <section id="services" class="services section-bg py-5">
+      <div class="container-sm" data-aos="fade-up">
+        <div class=" mb-3 pb-3">
+          <h5 class="text-primary text-uppercase " style="letter-spacing: 0px;">Figurines and Toys</h5>
+        </div>
+        <div id="stage" class="row mb-4">
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
+            data-aos-delay="200">
+            <div class="icon-box bg-light">
+              <div class="icon"><i class=" "></i></div>
+              <h4 class="text-black">L sitting down</h4>
+              <a href=""><img src="/assets/pics/images/L-f-cod1.jpg" class="bg-bc"></a>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
+            data-aos-delay="200">
+            <div class="icon-box bg-light">
+              <div class="icon"><i class=" "></i></div>
+              <h4 class="text-black">Sed ut perspici</h4>
+              <a href=""><img src="/assets/pics/images/aki-hawa-f-cod1.webp" class=" " height="225"></a>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
+            data-aos-delay="200">
+            <div class="icon-box bg-light">
+              <div class="icon"><i class=" "></i></div>
+              <h4 class="text-black">Sed ut perspici</h4>
+              <a href=""><img src="/assets/pics/images/denji-f-cod1.webp" class=" " height="320"></a>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
+            data-aos-delay="200">
+            <div class="icon-box bg-light">
+              <div class="icon"><i class=" "></i></div>
+              <h4 class="text-black">Sed ut perspici</h4>
+              <a href=""><img src="/assets/pics/images/L-f-cod1.jpg" class=" " height="300"></a>
+            </div>
+          </div>
+          <!-- <div class="container-fluid bg-color pt-3 d-none d-lg-block">
+            <div class="container">
+              <div class="row">
+              </div>
+            </div>
+          </div> -->
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
+            data-aos-delay="200">
+            <div class="icon-box bg-light">
+              <div class="icon"><i class=" "></i></div>
+              <h4 class="text-black">L sitting down</h4>
+              <a href=""><img src="/assets/pics/images/L-f-cod1.jpg" class="bg-bc"></a>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
+            data-aos-delay="200">
+            <div class="icon-box bg-light">
+              <div class="icon"><i class=" "></i></div>
+              <h4 class="text-black">Sed ut perspici</h4>
+              <a href=""><img src="/assets/pics/images/aki-hawa-f-cod1.webp" class=" " height="225"></a>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
+            data-aos-delay="200">
+            <div class="icon-box bg-light">
+              <div class="icon"><i class=" "></i></div>
+              <h4 class="text-black">Sed ut perspici</h4>
+              <a href=""><img src="/assets/pics/images/denji-f-cod1.webp" class=" " height="320"></a>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
+            data-aos-delay="200">
+            <div class="icon-box bg-light">
+              <div class="icon"><i class=" "></i></div>
+              <h4 class="text-black">Sed ut perspici</h4>
+              <a href=""><img src="/assets/pics/images/L-f-cod1.jpg" class=" " height="300"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ^Figurines Section -->
+    <div class="container-fluid py-5">
+      <div class="container pt-5 pb-3">
+        <div class=" mb-3 pb-3">
+          <h5 class="text-primary text-uppercase " style="letter-spacing: 0px;">Manga</h5>
+        </div>
+        <div class="row">
+          <div id="draggedElement1" class="col-lg-3 col-md-6 mb-4 draggedElement" draggable="true"
+            ondragstart="dragElement(event)">
+            <div class="package-item bg-white mb-2">
+              <a><img class="img-thumbnail" src="/assets/pics/images/chainsaw man.jpg"></a>
+               
+              <!-- <div class="elemt">  -->
+                <div class="p-4 bg-color position-relative">
+                  <a class="h5 text-decoration-none text-black mangaTitle showMangaButton" data-manga-id="manga1">Chainsaw
+                    Man</a>
+                  <div class="mangaPrice">$24.66</div>  
+                  <!-- <button class="bton"> <i
+                  class="fa fa-adjust fa-cart-plus"></i> </button> -->
+                </div>  
+              <!-- </div> -->
+              <!-- <div class="volumeSelectWrapper">
+                <label for="volumeSelect2">Choose Volume:</label>
+                <select id="volumeSelect2" onchange="updatePrice(this.value)">
+                  <option value="1">Volume 1</option>
+                  <option value="2">Volume 2</option>
+                  <option value="3">Volume 3</option> 
+                </select>
+              </div> -->
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a><img class="img-thumbnail" src="/assets/pics/images/Monthly-Girls-Nozaki-kun-vol-1.jpg"></a>
+              <div class="p-4 bg-color itm position-relative" draggable="true" ondragstart="drag(event)" id="item1">
+                <a class="h5 text-decoration-none text-black mangaTitle showMangaButton" data-manga-id="manga2">Monthly
+                  Girls Nozaki -kun</a>
+                <div class="mangaPrice">$59.34</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a><img class="img-thumbnail" src="/assets/pics/images/jujutsu-kaisen-vol-1.jpg"></a>
+              <div class="p-4 bg-color itm position-relative" draggable="true" ondragstart="drag(event)" id="item2">
+                <a class="h5 text-decoration-none text-black mangaTitle showMangaButton" data-manga-id="manga3">Jujutsu Kaisen </a>
+                <div class="mangaPrice">$23.47</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a><img class="img-thumbnail" src="/assets/pics/images/Tokyo-revengers-vol-1.jpg"></a>
+              <div class="p-4 bg-color itm position-relative" draggable="true" ondragstart="drag(event)" id="item3">
+                <a class="h5 text-decoration-none text-black mangaTitle showMangaButton" data-manga-id="manga4">Tokyo Revengers</a>
+                <div class="mangaPrice">$33.76</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href="/htms/item.html"><img class="img-thumbnail" src="/assets/pics/images/one-piece-vol-1.jpg"></a>
+              <div class="p-4 bg-color itm position-relative" draggable="true" ondragstart="drag(event)" id="item4">
+                <a class="h5 text-decoration-none text-black" href="/htms/item.html">One Piece</a>
+                <div class="mangaPrice">$48.53</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/my-hero-academia.webp"></a>
+              <div class="p-4 bg-color itm position-relative" draggable="true" ondragstart="drag(event)" id="item5">
+                <a class="h5 text-decoration-none text-black mangaTitle showMangaButton" data-manga-id="manga6">My hero academia</a>
+                <div class="mangaPrice">$85.65</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/kaiju-no-8.webp"></a>
+              <div class="p-4 bg-color itm position-relative" draggable="true" ondragstart="drag(event)" id="item6">
+                <a class="h5 text-decoration-none text-black mangaTitle showMangaButton" data-manga-id="manga7">kaiju no 8</a>
+                <div class="mangaPrice">$48.65</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/spy-family-vol-1.jpg"></a>
+              <div class="p-4 bg-color itm position-relative" draggable="true" ondragstart="drag(event)" id="item7">
+                <a class="h5 text-decoration-none text-black mangaTitle showMangaButton" data-manga-id="manga8">Spy Family</a>
+                <div class="mangaPrice">$180.51</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/mashle-manga-664x1000.jpg.webp"></a>
+              <div class="p-4 bg-color itm position-relative" draggable="true" ondragstart="drag(event)" id="item8">
+                <a class="h5 text-decoration-none text-black mangaTitle showMangaButton" data-manga-id="manga9">mashle</a>
+                <div class="mangaPrice">$45.99</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/the-elusive-samurai-666x1000.jpg.webp"></a>
+              <div class="p-4 bg-color itm position-relative" draggable="true" ondragstart="drag(event)" id="item9">
+                <a class="h5 text-decoration-none text-black mangaTitle showMangaButton" data-manga-id="manga10">the elusive samurai</a>
+                <div class="mangaPrice">$89.45</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/undead-unluck-manga-664x1000.jpg.webp"></a>
+              <div class="p-4 bg-color itm position-relative" draggable="true" ondragstart="drag(event)" id="item10">
+                <a class="h5 text-decoration-none text-black mangaTitle showMangaButton" data-manga-id="manga11">undead unluck</a>
+                <div class="mangaPrice">$85.95</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail"
+                  src="/assets/pics/images/to-your-eternity-yoshitoki-oima-700x1000.jpg.webp"></a>
+              <div class="p-4 bg-color itm position-relative" draggable="true" ondragstart="drag(event)" id="item11">
+                <a class="h5 text-decoration-none text-black mangaTitle showMangaButton" data-manga-id="manga12">to your eternity</a>
+                <div class="mangaPrice">$45.68</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/one-punch-man-667x1000.webp"></a>
+              <div class="p-4 bg-color itm position-relative" draggable="true" ondragstart="drag(event)" id="item12">
+                <a class="h5 text-decoration-none text-black mangaTitle showMangaButton" data-manga-id="manga13">one punch man</a>
+                <div class="mangaPrice">$48.68</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/doc-stone-645x1000.webp"></a>
+              <div class="p-4 bg-color itm position-relative" draggable="true" ondragstart="drag(event)" id="item13">
+                <a class="h5 text-decoration-none text-black mangaTitle showMangaButton" data-manga-id="manga14">dr. Stone</a>
+                <div class="mangaPrice">$78.98</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/demon-slayer-667x1000.webp"></a>
+              <div class="p-4 bg-color itm position-relative" draggable="true" ondragstart="drag(event)" id="item14">
+                <a class="h5 text-decoration-none text-black mangaTitle showMangaButton" data-manga-id="manga15">demon Slayer</a>
+                <div class="mangaPrice">$59.68</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/the-promised-neverland-667x1000.jpg"></a>
+              <div class="p-4 bg-color itm position-relative" draggable="true" ondragstart="drag(event)" id="item15">
+                <a class="h5 text-decoration-none text-black mangaTitle showMangaButton" data-manga-id="manga16">the promised neverland</a>
+                <div class="mangaPrice">$45.55</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/hells-paradise-697x1000.jpg"></a>
+              <div class="p-4 bg-color itm position-relative" draggable="true" ondragstart="drag(event)" id="item16">
+                <a class="h5 text-decoration-none text-black mangaTitle showMangaButton" data-manga-id="manga17">hells paradise</a>
+                <div class="mangaPrice">$46.45</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/call-of-the-night-667x1000.webp"></a>
+              <div class="p-4 bg-color itm position-relative" draggable="true" ondragstart="drag(event)" id="item17">
+                <a class="h5 text-decoration-none text-black mangaTitle showMangaButton" data-manga-id="manga18">call of the night</a>
+                <div class="mangaPrice">$59.68</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/tokyo-ghoul-697x1000.webp"></a>
+              <div class="p-4 bg-color itm position-relative" draggable="true" ondragstart="drag(event)" id="item18">
+                <a class="h5 text-decoration-none text-black mangaTitle showMangaButton" data-manga-id="manga19">tokyo ghoul</a>
+                <div class="mangaPrice">$52.65</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/Haikyuu-667x1000.webp"></a>
+              <div class="p-4 bg-color itm position-relative" draggable="true" ondragstart="drag(event)" id="item19">
+                <a class="h5 text-decoration-none text-black mangaTitle showMangaButton" data-manga-id="manga20">haikyuu</a>
+                <div class="mangaPrice">$59.68</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/the-limited-zone.webp"></a>
+              <div class="p-4 bg-color itm position-relative" draggable="true" ondragstart="drag(event)" id="item20">
+                <a class="h5 text-decoration-none text-black mangaTitle showMangaButton" data-manga-id="manga21">the limited zone</a>
+                <div class="mangaPrice">$55.55</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/the-remarried-empress.webp"></a>
+              <div class="p-4 bg-color itm position-relative" draggable="true" ondragstart="drag(event)" id="item21">
+                <a class="h5 text-decoration-none text-black mangaTitle showMangaButton" data-manga-id="manga22">the remarried empress</a>
+                <div class="mangaPrice">$59.68</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/killing-stalking-deluxe.webp"></a>
+              <div class="p-4 bg-color itm position-relative" draggable="true" ondragstart="drag(event)" id="item22">
+                <a class="h5 text-decoration-none text-black mangaTitle showMangaButton" data-manga-id="manga23">killing stalking</a>
+                <div class="mangaPrice">$29.63</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/attack-on-titan.webp"></a>
+              <div class="p-4 bg-color itm position-relative" draggable="true" ondragstart="drag(event)" id="item23">
+                <a class="h5 text-decoration-none text-black mangaTitle showMangaButton" data-manga-id="manga24">attack on titan</a>
+                <div class="mangaPrice">$68.25</div>
+              </div>
+            </div>
+          </div>
+          <div id="overlay" class="overlay">
+            <div class="info-box">
+              <h2 id="mangaTitle">Manga Title</h2>
+              <img id="mangaImage" src="" alt="Manga Cover">
+              <p id="mangaDetails">Manga details will appear here.</p>
+              <div id="volumeList">
+                <h3>Available Volumes:</h3>
+                <ul id="volumeItems"></ul>
+              </div>
+              <button id="closeBoxButton">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ^Manga Section -->
+    <div class="grid-container">
+      <!-- Item 1 -->
+      <div class="grid-item">
+          <img src="/assets/pics/images/lukas-denier-ED6-unsplash.jpg" alt="Clothing Item 1">
+          <h3>Clothing Item 1</h3>
+          <p>Price: $19.99</p>
+          <p>On Sale: 20% off</p>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="grid-item">
+          <img src="/assets/pics/images/lukas-denier-ED6-unsplash.jpg" alt="Clothing Item 2">
+          <h3>Clothing Item 2</h3>
+          <p>Price: $29.99</p>
+          <p>On Sale: 15% off</p>
+      </div>
+
+      <!-- Add more items as needed -->
+  </div>
+    <div class="container-fluid py-4">
+      <div class="container pt-5 pb-3">
+        <div class="text-left mb-3 pb-3">
+          <h5 class="text-primary text-uppercase " style="letter-spacing: 0px;">Cosplay Dresses</h5>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="destination-item position-relative overflow-hidden mb-2">
+              <img class="img-fluid" src="/assets/pics/images/lukas-denier-ED6-unsplash.jpg" alt="">
+              <a class="destination-overlay text-white text-decoration-none" href="">
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="destination-item position-relative overflow-hidden mb-2">
+              <img class="img-fluid" src="/assets/pics/images/lukas-denier-ED6-unsplash.jpg" alt="">
+              <a class="destination-overlay text-white text-decoration-none" href="">
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="destination-item position-relative overflow-hidden mb-2">
+              <img class="img-fluid" src="/assets/pics/images/lukas-denier-ED6-unsplash.jpg" alt="">
+              <a class="destination-overlay text-white text-decoration-none" href="">
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="destination-item position-relative overflow-hidden mb-2">
+              <img class="img-fluid" src="/assets/pics/images/lukas-denier-ED6-unsplash.jpg" alt="">
+              <a class="destination-overlay text-white text-decoration-none" href="">
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="destination-item position-relative overflow-hidden mb-2">
+              <img class="img-fluid" src="/assets/pics/images/lukas-denier-ED6-unsplash.jpg" alt="">
+              <a class="destination-overlay text-white text-decoration-none" href="">
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="destination-item position-relative overflow-hidden mb-2">
+              <img class="img-fluid" src="/assets/pics/images/lukas-denier-ED6-unsplash.jpg" alt="">
+              <a class="destination-overlay text-white text-decoration-none" href="">
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="destination-item position-relative overflow-hidden mb-2">
+              <img class="img-fluid" src="/assets/pics/images/lukas-denier-ED6-unsplash.jpg" alt="">
+              <a class="destination-overlay text-white text-decoration-none" href="">
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="destination-item position-relative overflow-hidden mb-2">
+              <img class="img-fluid" src="/assets/pics/images/lukas-denier-ED6-unsplash.jpg" alt="">
+              <a class="destination-overlay text-white text-decoration-none" href="">
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="destination-item position-relative overflow-hidden mb-2">
+              <img class="img-fluid" src="/assets/pics/images/lukas-denier-ED6-unsplash.jpg" alt="">
+              <a class="destination-overlay text-white text-decoration-none" href="">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ^cosplay section -->
+    <!-- <div class="container-fluid py-5">
+      <div class="container pt-5 pb-3">
+        <div class=" mb-3 pb-3">
+          <h5 class="text-primary text-uppercase " style="letter-spacing: 0px;">Chat Room</h5>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <img class="img-fluid" src="/assets/pics/images/dex-ezekiel-unsplash-manga.jpg" alt="">
+              <div class="p-4">
+                <div class="d-flex justify-content-between mb-3">
+                  <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Thailand</small>
+                  <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3 days</small>
+                  <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 Person</small>
+                </div>
+                <a class="h5 text-decoration-none" href="">Discover amazing places of the world with us</a>
+                <div class="border-top mt-4 pt-4">
+                  <div class="d-flex justify-content-between">
+                    <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small>
+                    </h6>
+                    <h5 class="m-0">$350</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- ^supposed chat room -->
+    <!-- <div class="kwjevfh">
+       
+        <div class="srhv" id="icon1" data-title="Account" data-info="User account information"><i class="fas fa-user"></i></div>
+        <div class="srhv" id="icon2" data-title="Preferences" data-info="User preferences settings"><i class="fas fa-cog"></i></div>
+        <div class="srhv" id="icon3" data-title="Settings" data-info="General application settings"><i class="fas fa-wrench"></i></div>
+       
+    </div> -->
+    <div class="stlk7ud" id="section">
+        <!-- section^ -->
+        <div class="sbekgjd" id="info-box">
+            <!-- info-box^ -->
+            <h2>Icon Title</h2>
+            <p>Icon information goes here.</p>
+        </div>
+    </div>
+    <div class="sutbijyfik"></div>
+    
+    <!-- info-overlay^ -->
+    <div class="left-sidebar">
+      <!-- Left sidebar content, such as navigation menu, logo, etc. -->
+      <div class="account-settings active btn-light">
+        <i class="fas fa-user"></i>
+        <div class="account-buttons">
+          <div class="account-button btn-light" id="icon1" data-title="Account" data-info="User account information"><i class="fas fa-user"></i></div>
+          <!-- <button id="account" class="account-button btn-light"><i class="fas fa-user-circle"></i></button> -->
+          <div class="account-button btn-light" id="icon2" data-title="Preferences" data-info="User preferences settings"><i class="fas fa-cog"></i></div>
+          <!-- <button id="preferences" class="account-button btn-light"><i class="fas fa-cog"></i></button> -->
+          <div class="account-button btn-light" id="icon3" data-title="Settings" data-info="General application settings"><i class="fas fa-wrench"></i> </div>
+          <!-- <button id="settings" class="account-button btn-light"><i class="fas fa-wrench"></i></button>    -->
+        </div>
+      </div>
+    </div>
+    <div class="main-content">
+      <!-- Your main content area goes here -->
+    </div>
+    <!-- ^ account setting -->
+    <!-- <div class="ml-5">
+      <div class="mb-3">
+        <h5 class="text-black" style="letter-spacing: 0px;">Follow Us</h5>
+        <div class="d-flex justify-content-start">
+          <a class="btn btn-lg btn-outline-dark mr-2" href="#"><i class="fab fa-twitter"></i></a>
+          <a class="btn btn-lg btn-outline-dark mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+          <a class="btn btn-lg btn-outline-dark mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a class="btn btn-lg btn-outline-dark" href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div> -->
+    <!-- social if any -->
+    <div class="container-md bg-dark text-white border-top py-1 px-sm-3 px-md-5"
+      style="border-color: rgba(256, 256, 256, .1) !important;">
+      <div class="row">
+        <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
+          <p class="m-0 text-white-50">Copyright &copy; <a href="#">fknWebsite</a>. All Rights Reserved.</a>
+          </p>
+        </div>
+        <div class="col-lg-6 text-center text-md-right">
+          <p class="m-0 text-white-50">Designed by <a href=" ">notMeObviously</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- ^bottom bar -->
+  </div>
+  <a href="#" class="btn btn-outline-dark px-0 back-to-top" style="display: inline;">
+    <i class="fa fa-angle-double-up"></i>
+  </a>
+  <!-- ^go to top -->
+  <script>
+    const cartBar = document.getElementById('cart-bar');
+    const cartHandle = document.getElementById('cart-handle');
+    const mainContent = document.querySelector('main');
+
+    function toggleCartBar() {
+      cartBar.classList.toggle('cart-open');
+      mainContent.classList.toggle('cart-open');
+    }
+    cartHandle.addEventListener('click', toggleCartBar);
+    // Function to handle drag events
+    function drag(event) {
+      event.dataTransfer.setData("text/plain", event.target.id);
+    }
+
+    // Function to handle drop events
+    function drop(event) {
+      event.preventDefault();
+      var itemId = event.dataTransfer.getData("text/plain");
+      var item = document.getElementById(itemId);
+      var cart = document.getElementById("cart-bar");
+      cart.appendChild(item);
+    }
+
+    // Function to handle dragover events
+    function allowDrop(event) {
+      event.preventDefault();
+    }
+
+    // Add event listeners to the cart and items
+    var cart = document.getElementById("cart-bar");
+    cart.addEventListener("drop", drop);
+    cart.addEventListener("dragover", allowDrop);
+
+    var items = document.getElementsByClassName("item");
+    for (var i = 0; i < items.length; i++) {
+      items[i].addEventListener("dragstart", drag);
+    }
+    function dragElement(event) {
+      event.dataTransfer.setData('text/plain', event.target.id);
+    }
+
+    function dropElement(event) {
+      event.preventDefault();
+
+      const draggedElementId = event.dataTransfer.getData('text/plain');
+      const draggedElement = document.getElementById(draggedElementId);
+
+      // Clone the dragged element and append it to the cart section
+      const clonedElement = draggedElement.cloneNode(true);
+      clonedElement.removeAttribute('id'); // Remove ID to avoid duplication
+
+      // Create a new div to hold the selected volume
+      const selectedVolume = document.createElement('div');
+      selectedVolume.classList.add('selectedVolume');
+      const volumeSelect = clonedElement.querySelector('select');
+      selectedVolume.textContent = 'Volume: ' + volumeSelect.value;
+
+      // Append the selected volume div and the cloned element to the cart section
+      const cartItem = document.createElement('div');
+      cartItem.classList.add('cartItem');
+      cartItem.appendChild(selectedVolume);
+      cartItem.appendChild(clonedElement);
+      document.getElementById('cart-bar').appendChild(cartItem);
+
+      // Check if the dragged element is in the cart section and add the showVolumeSelect class
+      if (event.target === document.getElementById('cart-bar')) {
+        cartItem.classList.add('showVolumeSelect');
+      }
+    }
+
+    function allowDrop(event) {
+      event.preventDefault();
+    }
+
+    function updatePrice(selectedVolume) {
+      const clonedElement = document.querySelector('#cartSection > div:last-child > div:last-child');
+      updatePriceElement(clonedElement, selectedVolume);
+    }
+
+    function updatePriceElement(element, selectedVolume) {
+      const priceElement = element.querySelector('.mangaPrice');
+      let price = getPrice(selectedVolume); // Get the price based on the selected volume
+      priceElement.textContent = '$' + price.toFixed(2);
+    }
+
+    function getPrice(selectedVolume) {
+      // Map the volume to the corresponding price
+      const prices = {
+        '1': 9.99,
+        '2': 12.99,
+        '3': 14.99,
+      };
+      return prices[selectedVolume] || 9.99; // Default price is $9.99
+    } 
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const accountSettingsButton = document.querySelector(".account-settings i");
+      const accountButtons = document.querySelector(".account-buttons");
+      let isDropdownVisible = false;
+
+      accountSettingsButton.addEventListener("click", function () {
+        if (isDropdownVisible) {
+          accountButtons.style.opacity = "0"; // Set opacity to 0 to fade out
+          accountButtons.style.visibility = "hidden"; // Hide the buttons
+        } else {
+          accountButtons.style.opacity = "1"; // Set opacity to 1 to fade in
+          accountButtons.style.visibility = "visible"; // Show the buttons
+        }
+        isDropdownVisible = !isDropdownVisible;
+      });
+    });
+
+  </script>
+  <script>
+    // const showBoxButton = document.getElementById('showBoxButton');
+    const showMangaButtons = document.querySelectorAll('.showMangaButton');
+    const closeBoxButton = document.getElementById('closeBoxButton');
+    const overlay = document.getElementById('overlay');
+    const mangaTitle = document.getElementById('mangaTitle');
+    const mangaImage = document.getElementById('mangaImage');
+    const mangaDetails = document.getElementById('mangaDetails');
+    const volumeList = document.getElementById('volumeItems');
+
+    const mangaInfo = {
+      manga1: {
+        title: 'Manga 1 Title',
+        imageSrc: 'cha.jpg',
+        details: 'Manga 1 details and description go here.',
+        volumes: ['Manga 1 Volume 1', 'Manga 1 Volume 2', 'Manga 1 Volume 3']
+      },
+      manga2: {
+        title: 'Manga 2 Title',
+        imageSrc: 'path-to-manga2-image.jpg',
+        details: 'Manga 2 details and description go here.',
+        volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
+      },
+      manga3: {
+        title: 'Manga 3 Title',
+        imageSrc: 'path-to-manga2-image.jpg',
+        details: 'Manga 2 details and description go here.',
+        volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
+      },
+      manga4: {
+        title: 'Manga 4 Title',
+        imageSrc: 'path-to-manga2-image.jpg',
+        details: 'Manga 2 details and description go here.',
+        volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
+      },
+      manga6: {
+        title: 'Manga 6 Title',
+        imageSrc: 'path-to-manga2-image.jpg',
+        details: 'Manga 2 details and description go here.',
+        volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
+      },
+      manga7: {
+        title: 'Manga 7 Title',
+        imageSrc: 'path-to-manga2-image.jpg',
+        details: 'Manga 2 details and description go here.',
+        volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
+      },
+      manga8: {
+        title: 'Manga 8 Title',
+        imageSrc: 'path-to-manga2-image.jpg',
+        details: 'Manga 2 details and description go here.',
+        volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
+      },
+      manga9: {
+        title: 'Manga 9 Title',
+        imageSrc: 'path-to-manga2-image.jpg',
+        details: 'Manga 2 details and description go here.',
+        volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
+      },
+      manga10: {
+        title: 'Manga 10 Title',
+        imageSrc: 'path-to-manga2-image.jpg',
+        details: 'Manga 2 details and description go here.',
+        volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
+      },
+      manga11: {
+        title: 'Manga 11 Title',
+        imageSrc: 'path-to-manga2-image.jpg',
+        details: 'Manga 2 details and description go here.',
+        volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
+      },
+      manga12: {
+        title: 'Manga 12 Title',
+        imageSrc: 'path-to-manga2-image.jpg',
+        details: 'Manga 2 details and description go here.',
+        volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
+      },
+      manga13: {
+        title: 'Manga 13 Title',
+        imageSrc: 'path-to-manga2-image.jpg',
+        details: 'Manga 2 details and description go here.',
+        volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
+      },
+      manga14: {
+        title: 'Manga 14 Title',
+        imageSrc: 'path-to-manga2-image.jpg',
+        details: 'Manga 2 details and description go here.',
+        volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
+      },
+      manga15: {
+        title: 'Manga 15 Title',
+        imageSrc: 'path-to-manga2-image.jpg',
+        details: 'Manga 2 details and description go here.',
+        volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
+      },
+      manga16: {
+        title: 'Manga 16 Title',
+        imageSrc: 'path-to-manga2-image.jpg',
+        details: 'Manga 2 details and description go here.',
+        volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
+      },
+      manga17: {
+        title: 'Manga 17 Title',
+        imageSrc: 'path-to-manga2-image.jpg',
+        details: 'Manga 2 details and description go here.',
+        volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
+      },
+      manga18: {
+        title: 'Manga 18 Title',
+        imageSrc: 'path-to-manga2-image.jpg',
+        details: 'Manga 2 details and description go here.',
+        volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
+      },
+      manga19: {
+        title: 'Manga 19 Title',
+        imageSrc: 'path-to-manga2-image.jpg',
+        details: 'Manga 2 details and description go here.',
+        volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
+      },
+      manga20: {
+        title: 'Manga 20 Title',
+        imageSrc: 'path-to-manga2-image.jpg',
+        details: 'Manga 2 details and description go here.',
+        volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
+      },
+      manga21: {
+        title: 'Manga 21 Title',
+        imageSrc: 'path-to-manga2-image.jpg',
+        details: 'Manga 2 details and description go here.',
+        volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
+      },
+      manga22: {
+        title: 'Manga 22 Title',
+        imageSrc: 'path-to-manga2-image.jpg',
+        details: 'Manga 2 details and description go here.',
+        volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
+      },
+      manga23: {
+        title: 'Manga 23 Title',
+        imageSrc: 'path-to-manga2-image.jpg',
+        details: 'Manga 2 details and description go here.',
+        volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
+      },
+      manga24: {
+        title: 'Manga 24 Title',
+        imageSrc: 'path-to-manga2-image.jpg',
+        details: 'Manga 2 details and description go here.',
+        volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
+      }
+    };
+
+    showMangaButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const mangaId = button.getAttribute('data-manga-id');
+        const selectedManga = mangaInfo[mangaId];
+
+        mangaTitle.textContent = selectedManga.title;
+        mangaImage.src = selectedManga.imageSrc;
+        mangaDetails.textContent = selectedManga.details;
+
+        volumeList.innerHTML = '';
+
+        selectedManga.volumes.forEach(volume => {
+          const volumeItem = document.createElement('li');
+          volumeItem.textContent = volume;
+          volumeList.appendChild(volumeItem);
+        });
+
+        overlay.style.display = 'flex';
+      });
+    });
+
+    closeBoxButton.addEventListener('click', () => {
+      overlay.style.display = 'none';
+    });
+  </script>
+  <script>
+    const icons = document.querySelectorAll('.account-button');
+    const section = document.getElementById('section');
+    const infoBox = document.getElementById('info-box');
+
+    let activeIcon = null; // Keep track of the active icon
+
+    icons.forEach(icon => {
+        icon.addEventListener('click', () => {
+            const title = icon.getAttribute('data-title');
+            const info = icon.getAttribute('data-info');
+
+            if (activeIcon === icon) {
+                // Toggle section visibility if the same icon is clicked again
+                section.style.display = section.style.display === 'none' ? 'block' : 'none';
+            } else {
+                // Update info and show section for a different icon
+                infoBox.querySelector('h2').textContent = title;
+                infoBox.querySelector('p').textContent = info;
+                section.style.display = 'block';
+                activeIcon = icon;
+            }
+
+            // Scroll to the section for a better user experience
+            if (section.style.display === 'block') {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    document.addEventListener('click', event => {
+        // Check if clicked element is outside the section and icons
+        if (!section.contains(event.target) && !Array.from(icons).some(icon => icon.contains(event.target))) {
+            section.style.display = 'none'; // Close the section
+            activeIcon = null; // Reset active icon
+        }
+    });  
+  </script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="/assets/lib/easing/easing.min.js"></script> -->
+  <script src="/assets/lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="/assets/lib/tempusdominus/js/moment.min.js"></script>
+  <!-- <script src="/assets/lib/tempusdominus/js/moment-timezone.min.js"></script> -->
+  <script src="/assets/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+  <!-- ^JavaScript Libraries (commented once not seem neccessary)-->
+  <!-- <script src="/assets/mail/jqBootstrapValidation.min.js"></script>
+  <script src="/assets/mail/contact.js"></script> -->
+  <!-- ^Contact Javascript File -->
+  <script src="/assets/js/main.js"></script>
+</body>
+
+</html>

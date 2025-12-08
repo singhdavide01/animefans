@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>AnimeFans - Manga</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="Free HTML Templates" name="keywords">
+  <meta content="Free HTML Templates" name="description">
+  <!-- <link href="/assets/pics/images/LogoBlack.jpg" rel="icon"> -->
+  <!-- ^this one is dark theme favicon -->
+  <link href="/assets/pics/images/AF blue.jpg" rel="icon">
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <!-- Libraries Stylesheet -->
+  <link href="/assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="/assets/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="/assets/css/style.css" rel="stylesheet">
+  <!-- <style>
+    body {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/pics/images/miika-laaksonen-unsplash-readingmanga.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+  </style> -->
+  <!-- <style>
+    #cart-bar {
+      position: fixed;
+      top: 10; 
+      right: -300px;
+      width: 300px;
+      height: 100vh;
+      background-color: #f2f2f2;
+      transition: right 0.3s ease;
+      z-index: 9999;
+    } 
+    #cart-content {
+        padding: 20px;
+    } 
+    .cart-open {
+        margin-right: 300px; /* Adjust the margin to match the width of the cart bar */
+        transition: margin-right 0.3s ease;
+    }
+  </style> -->
+  <style>
+    /* .cart {
+      width: 200px;
+      height: 300px;
+      border: 2px solid black;
+      padding: 10px;
+    } */
+
+    /* .item {
+      width: 100px;
+      height: 50px;
+      background-color: #ccc;
+      margin-bottom: 5px;
+      cursor: move;
+    } */
+  </style>
+  <style>
+    /* body {
+      margin: 0;
+      padding: 0;
+      position: relative;  
+    } */
+
+    .left-sidebar {
+        position: fixed;
+        bottom: 20px; /* Adjust the distance from the bottom */
+        left: 20px; /* Adjust the distance from the left */
+        width: 50px; /* Adjust the width of the sidebar to accommodate the icon */
+        color: black;
+        background-color: #f0f0f0;
+        /* v111 */
+        /* Add other styling for the sidebar like height, padding, etc. */
+    }
+
+    .account-settings {
+        position: relative; /* Add this to keep the icon fixed in its current position */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 40px; /* Adjust the height of the icon container */
+    }
+
+    .account-settings i {
+        font-size: 22px; /* Adjust the size of the icon */
+        cursor: pointer;
+    }
+
+    .account-buttons {
+        opacity: 0; /* Initially set opacity to 0 */
+        visibility: hidden; /* Initially hide the buttons */
+        position: absolute;
+        bottom: 60px; /* Adjust the distance from the bottom */
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .account-button {
+        padding: 10px;
+        margin: 5px;
+        border: none;
+        cursor: pointer;
+        background-color: transparent; /* Remove the background color */
+    }
+
+    .account-button i {
+        font-size: 20px; /* Adjust the size of the icon */
+    }
+
+    /* .account-button:hover {
+        background-color: #fff;
+    }  */
+
+  </style> 
+</head>
+
+<body>
+  <!-- <div class="sticky-top">
+    <div class="container-fluid position-relative nav-bar p-0 ">
+      <div class=" position-relative " style="z-index: 9;">
+        <nav id="nav" class="navbar navbar-expand-lg bg-dark navbar-dark shadow-lg ">
+          <a href="/htms/manga.html" id="cf">
+            <img src="/assets/pics/images/change-dark-anime-fanatics.jpg" class="bottom" alt="AnimeFans" height="38"
+              data-atf="1" data-frt="0">
+            <img src="/assets/pics/images/dark anime fanatics.jpg" class="top" alt="AnimeFans" height="38" data-atf="1"
+              data-frt="0">
+          </a>
+          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-between " id="navbarCollapse">
+            <div class="navbar-nav ml-auto ">
+              <ul class=" ul d-flex justify-content-start">
+                <li>
+                  <div class="search-bar-dark justify-content-center mr-5">
+                    <form class="search-form-dark d-flex align-items-center" method="POST" action="#">
+                      <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+                      <button type="submit" title="Search"><i class="bg- text-white fa fa-search"></i></button>
+                    </form>
+                  </div>
+                </li>
+                <li><a class="btn btn-lg  btn-dark mr-1" title="Home" href="/htms/index.html"><i
+                      class="fa fa-adjust fa-home"></i></a></li>
+                <li><a class="btn btn-lg active btn-dark mr-1" title="Manga" href="/htms/manga.html"><i
+                      class="fa fa-adjust fa-book-open"></i></a></li>
+                <li><a class="btn btn-lg  btn-dark mr-1" title="Cosplay Dresses" href="/htms/cosplay.html"><i
+                      class="fa fa-adjust fa-user-astronaut"></i></a></li>
+                <li><a class="btn btn-lg  btn-dark mr-1" title="Anime Toys" href="/htms/toys.html"><i
+                      class="fa fa-adjust fa-dragon"></i></a></li>
+                <li><a class="btn btn-lg  btn-dark mr-1" title="About us" href="/htms/about.html"><i
+                      class="fa fa-adjust fa-info"></i></a></li>
+                <li><a class="btn btn-lg  btn-dark nav-item dropdown dropdown-toggle mr-1" title="List"
+                    data-toggle="dropdown" href="#"><i class="fa fa-adjust fa fa-list "></i></a>
+                  <div class="dropdown-menu dropdown-menu-right ">
+                    <a href="/htms/blog.html" class="dropdown-item "><i class="fa fa-blog"></i> Blog</a>
+                    <a href="/htms/single.html" class="dropdown-item"><i class="fa fa-file-prescription"></i>
+                      Details</a>
+                    <a href="/htms/destination.html" class="dropdown-item"><i class="fa fa-place-of-worship"></i>
+                      Destinations</a>
+                    <a href="/htms/testimonial.html" class="dropdown-item"><i
+                        class="fa fa-list-alt "></i>Testimonial</a>
+                  </div>
+                </li>
+                <li><a class="btn btn-lg  btn-dark " title="Search" href=""><i
+                      class="fa fa-adjust fa-cart-plus"></i></a></li>
+                <li><a class="btn btn-lg  btn-dark " title="theme"><i class="fa fa-adjust fa"></i></a></li>
+              </ul>
+            </div>
+          </div>
+      </div>
+      </nav>
+    </div>
+  </div> -->
+  <!-- ^dark navbar -->
+  <!-- <div class="sticky-top">
+    <div class="container-fluid position-relative nav-bar p-0 ">
+      <div class=" position-relative " style="z-index: 9;">
+        <nav id="nav" class="navbar navbar-expand-lg bg-light navbar-light shadow-lg ">
+          <a href="/htms/index.html" id="cf">
+            <img class="bottom" src="/assets/pics/images/a5.jpg" height="38" data-atf="1" data-frt="0">
+            <img class="top" src="/assets/pics/images/a3.jpg" height="38" data-atf="1" data-frt="0"> -->
+  <!-- <img class="bottom" src="/assets/pics/images/light dark anime fanatics.jpg" height="38" data-atf="1">
+            <img class="top" src="/assets/pics/images/a3.jpg" height="38" data-atf="1" data-frt="0"> -->
+  <!-- <img class="bottom" src="/assets/pics/images/change-light-anime-fanatics.jpg" height="38" data-atf="1">
+            <img class="top" src="/assets/pics/images/light dark anime fanatics.jpg" height="38" data-atf="1"> -->
+  <!-- </a>
+          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon bg-light"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-between " id="navbarCollapse">
+            <div class="navbar-nav ml-auto ">
+              <ul class=" ul d-flex justify-content-start">
+                <li>
+                  <div class="search-bar justify-content-center mr-5">
+                    <form class="search-form d-flex align-items-center" method="POST" action="#">
+                      <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+                      <button type="submit" title="Search"><i class="fa fa-search"></i></button>
+                    </form>
+                  </div>
+                </li>
+                <li><a class="btn btn-lg  btn-light mr-1" title="Home" href="/htms/index.html"><i
+                      class="fa fa-adjust fa-home"></i></a></li>
+                <li><a class="btn btn-lg active btn-light mr-1" title="Manga" href="/htms/manga.html"><i
+                      class="fa fa-adjust fa-book-open"></i></a></li>
+                <li><a class="btn btn-lg  btn-light mr-1" title="Cosplay Dresses" href="/htms/cosplay.html"><i
+                      class="fa fa-adjust fa-user-astronaut"></i></a></li>
+                <li><a class="btn btn-lg  btn-light mr-1" title="Anime Toys" href="/htms/toys.html"><i
+                      class="fa fa-adjust fa-dragon"></i></a></li>
+                <li><a class="btn btn-lg  btn-light mr-1" title="About us" href="/htms/about.html"><i
+                      class="fa fa-adjust fa-info"></i></a></li>
+                <li><a class="btn btn-lg  btn-light nav-item dropdown dropdown-toggle mr-1" title="List"
+                    data-toggle="dropdown" href="#"><i class="fa fa-adjust fa fa-list "></i></a>
+                  <div class="dropdown-menu dropdown-menu-right ">
+                    <a href="/htms/blog.html" class="dropdown-item "><i class="fa fa-blog"></i> Blog</a>
+                    <a href="/htms/single.html" class="dropdown-item"><i class="fa fa-file-prescription"></i>
+                      Details</a>
+                    <a href="/htms/destination.html" class="dropdown-item"><i class="fa fa-place-of-worship"></i>
+                      Destinations</a>
+                    <a href="/htms/testimonial.html" class="dropdown-item"><i
+                        class="fa fa-list-alt "></i>Testimonial</a>
+                  </div>
+                </li>
+                <li><a class="btn btn-lg btn-light " title="cart"><i class="fa fa-adjust fa-cart-plus"></i></a></li> -->
+  <!-- <li><a class="btn btn-lg  btn-light " title="theme"><i class="fa fa-adjust fa"></i></a></li> -->
+  <!-- </ul>
+              <button onclick="myFunction()" class="btn btn-lg  btn-light"><i class="fa fa-adjust"></i></button>
+            </div>
+          </div>
+      </div>
+      </nav>
+    </div>
+  </div> -->
+  <!-- ^navbar -->
+  <div class="sticky-top">
+    <div class="container-fluid position-relative nav-bar p-0 ">
+      <div class=" position-relative " style="z-index: 9;">
+        <nav id="nav" class="navbar navbar-expand-lg bg-dark navbar-dark shadow-lg ">
+          <a href="/htms/index.html" id="cf">
+            <img id="one" src="/assets/pics/images/change-dark-anime-fanatics.jpg" class="bottom" alt="AnimeFans"
+              height="38" data-atf="1" data-frt="0">
+            <img id="two" src="/assets/pics/images/darkAnimeFanatics.jpg" class="top" alt="AnimeFans" height="38"
+              data-atf="1" data-frt="0">
+          </a>
+          <button type="button" class="btn btn-lg btn-dark" data-toggle="collapse" data-target="#navbarCollapse"><i
+              class="fa fa-bars"></i></button>
+          <div class="collapse navbar-collapse justify-content-between " id="navbarCollapse">
+            <div class="navbar-nav ml-auto ">
+              <ul class=" ul d-flex justify-content-start">
+                <li>
+                  <div id="arch" class="search-bar-dark justify-content-center mr-5">
+                    <form id="rch" class="search-form-dark d-flex align-items-center" method="POST" action="#">
+                      <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+                      <button type="submit" title="Search"><i id="icon" class="search-icon fa fa-search"></i></button>
+                    </form>
+                  </div>
+                </li>
+                <li><a class="btn btn-lg  btn-dark mr-1" title="Home" href="/htms/index.html"><i
+                      class="fa fa-adjust fa-home"></i></a></li>
+                <li><a class="btn btn-lg active btn-dark mr-1" title="Manga" href="/htms/manga.html"><i
+                      class="fa fa-adjust fa-book-open"></i></a></li>
+                <li><a class="btn btn-lg  btn-dark mr-1" title="Cosplay Dresses" href="/htms/cosplay.html"><i
+                      class="fa fa-adjust fa-user-astronaut"></i></a></li>
+                <li><a class="btn btn-lg  btn-dark mr-1" title="Anime Toys" href="/htms/toys.html"><i
+                      class="fa fa-adjust fa-dragon"></i></a></li>
+                <li><a class="btn btn-lg  btn-dark mr-1" title="About us" href="/htms/about.html"><i
+                      class="fa fa-adjust fa-info"></i></a></li>
+                <li><a class="btn btn-lg  btn-dark nav-item dropdown dropdown-toggle mr-1" title="List"
+                    data-toggle="dropdown" href="#"><i class="fa fa-adjust fa fa-list "></i></a>
+                  <div class="dropdown-menu dropdown-menu-right ">
+                    <a href="/htms/blog.html" class="dropdown-item "><i class="fa fa-blog"></i> Blog</a>
+                    <a href="/htms/single.html" class="dropdown-item"><i class="fa fa-file-prescription"></i>
+                      Details</a>
+                    <a href="/htms/destination.html" class="dropdown-item"><i class="fa fa-place-of-worship"></i>
+                      Destinations</a>
+                    <a href="/htms/testimonial.html" class="dropdown-item"><i
+                        class="fa fa-list-alt "></i>Testimonial</a>
+                  </div>
+                </li>
+                <li><a id="cart-handle" class="btn btn-lg btn-dark" title="Search"><i
+                      class="fa fa-adjust fa-cart-plus"></i></a></li>
+                <!-- <li><a class="btn btn-lg  btn-dark " title="theme"><i class="fa fa-adjust fa"></i></a></li> -->
+              </ul>
+              <button onclick="myFunction()" class="btn btn-lg  btn-dark"><i class="fa fa-adjust"></i></button>
+            </div>
+          </div>
+      </div>
+      </nav>
+    </div>
+  </div>
+  <nav id="colo" class="navbar navbar-toggler bg-dark navbar-dark">
+    <div class="navbar-nav ml-auto ">
+      <ul class=" ul d-flex justify-content-start">
+        <!-- <li class="ml-auto justify-content-center"><p class="card-text">Manga :</p></li> -->
+        <li>
+          <p class="card-text text-ight mt-1 mr-1">Trending Manga's :</p>
+        </li>
+        <li><a class="btn btn-lg btn-dark mr-1">
+            <p class="card-text">one piece</p>
+          </a></li>
+        <li><a class="btn btn-lg btn-dark mr-1">
+            <p class="card-text">Chainsaw Man</p>
+          </a></li>
+        <li><a class="btn btn-lg btn-dark mr-1">
+            <p class="card-text">Tokyo Revengers</p>
+          </a></li>
+        <li><a class="btn btn-lg btn-dark mr-1">
+            <p class="card-text">Monthly Girls Nozaki -kun</p>
+          </a></li>
+        <li><a class="btn btn-lg btn-dark mr-1">
+            <p class="card-text">Jujutsu Kaisen</p>
+          </a></li>
+        <li><a class="btn btn-lg btn-dark mr-1">
+            <p class="card-text">My hero academia</p>
+          </a></li>
+        <li><a class="btn btn-lg btn-dark mr-3">
+            <p class="card-text">kaiju no 8</p>
+          </a></li>
+        <!-- <li><a class="btn btn-lg btn-dark mr-1" title="Manga"
+                  href="/htms/manga.html"><p class="card-text">Spy Family</p></a></li>  -->
+        <!-- <li><a class="btn btn-lg  btn-dark " title="Search" href=""><i class="fa fa-adjust fa-cart-plus"></i></a></li>   -->
+      </ul>
+    </div>
+  </nav>
+  <div id="cart-bar"> 
+      <h5 class="text-center mt-2">Your Cart</h5>
+      <!-- <ul id="cart-items">
+        <li>
+          <img src="product1.jpg" alt="Product 1">
+          <div class="item-details">
+            <h3>Product 1</h3>
+            <p>Price: $10.99</p>
+            <p>Quantity: 1</p>
+          </div>
+        </li>
+        <li>
+          <img src="product2.jpg" alt="Product 2">
+          <div class="item-details">
+            <h3>Product 2</h3>
+            <p>Price: $19.99</p>
+            <p>Quantity: 2</p>
+          </div>
+        </li> 
+      </ul> -->
+      <!-- <div id="cart-total">
+        <p>Total: $50.97</p>
+        <a href="checkout.html">Proceed to Checkout</a>
+      </div>  -->
+  </div> 
+  <!-- <div id="cart-handle"></div> -->
+  <!-- <div class="container-fluid "
+    style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/pics/images/miika-laaksonen-unsplash-readingmanga.jpg'), no-repeat center center; background-size: contain, cover; ">
+    <div class="container">
+      <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
+        <h3 class="display-4 text-white text-uppercase">Shop Manga</h3>
+        <div class="d-inline-flex text-white">
+          <p class="m-0 text-uppercase"><a class="text-white" href="">Home</a></p>
+          <i class="fa fa-angle-double-right pt-1 px-3"></i>
+          <p class="m-0 text-uppercase">Manga</p>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <!-- ^early welcome interface -->
+  <!-- <div class="container-fluid bg-color pt-3 d-lg-block">  -->
+  <!-- <div class="container-fluid bg-color-dark pt-3 d-lg-block">  -->
+  <div id="background" class="container-fluid bg-ab pt-3 d-lg-block">
+    <!-- ^bg color changing -->
+    <!-- <div class="container-fluid  pt-3 d-lg-block"> -->
+    <!-- ^it just exits   -->
+    <div class="container">
+      <div class="row">
+      </div>
+    </div>
+    <!-- ^website setting   -->
+    <!-- <div class="container-fluid mt-lg-5 pb-5"> 
+      <h5 class="text-white text-uppercase text-right" style="letter-spacing: 0px;">Search Here</h5> 
+      <div id="search" class="mt-4 bg-dark">
+        <div class="shadow" style="padding: 30px;">
+          <div class="row align-items-center" style="min-height: 60px;">
+            <div class="col-md-10">
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="mb-3 mb-md-0">
+                    <div class="search-anime  " data-target-input="nearest">
+                      <select class="custom-select px-4" style="height: 47px;">
+                        <option selected>Manga</option>
+                        <option value="1">Cosplay dresses</option>
+                        <option value="2">Toys</option>
+                        <option value="3">All catagories</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="mb-3 mb-md-0">
+                    <div class="search-anime  " data-target-input="nearest">
+                      <input type="text" class="form-control-df bg-dark p-4 " placeholder="Manga Name" data-target="#date1"
+                        data-toggle="datetimepicker" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="mb-3 mb-md-0">
+                    <div class="search-character  " data-target-input="nearest">
+                      <input type="text" class="form-control-df bg-dark p-4 " placeholder="Character Name" data-target="#date2"
+                        data-toggle="datetimepicker" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="mb-3 mb-md-0">
+                    <div class="search  " data-target-input="nearest">
+                      <input type="text" class="form-control-df bg-dark p-4 " placeholder="Search" data-target="#date2"
+                        data-toggle="datetimepicker" maxlength="255">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <button id="search-btn" class="btn btn-block btn-outline-primary-dark " type="submit"><i class="fa fa-search"></i> </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- Search Here section -->
+    <!-- <div class="ml-5 sticky-top">
+        <div class="mb-3">
+            <h5  style="letter-spacing: 1px;">Go To</h5>
+            <ul class=" ul d-flex justify-content-start">
+                <li><a class="btn btn-lg btn-outline-light btn-dark mr-2" href="/htms/index.html"><i class="fa fa-adjust fa-home"></i></a></li>
+                <li><a class="btn btn-lg btn-outline-light btn-dark mr-2" href="/htms/manga.html"><i class="fa fa-adjust fa-book-open"></i></a></li>
+                <li><a class="btn btn-lg btn-outline-light btn-dark mr-2" href="/htms/cosplay.html"><i class="fa fa-adjust fa-user-astronaut"></i></a></li>
+                <li><a class="btn btn-lg btn-outline-light btn-dark" href="/htms/toys.html"><i class="fa fa-adjust fa-dragon"></i></a></li>
+            </ul>
+        </div>
+    </div> -->
+    <!-- ^'Go To' archieved section -->
+    <div class="container-fluid py-5">
+      <div class="container pt-5 pb-3">
+        <div class="text-center mb-3 pb-3">
+          <h5 class="text-white text-uppercase " style="letter-spacing: 0px;">Manga</h5>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail"  src="/assets/pics/images/chainsaw man.jpg" alt=""></a>
+              <div class="p-5 bg-ab itm" draggable="true" ondragstart="drag(event)" id="item1">
+                <a class="h5 text-decoration-none text-ite" href="">Chainsaw Man </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/Monthly-Girls-Nozaki-kun-vol-1.jpg"
+                  alt=""></a>
+              <div class="p-5 bg-ab itm" draggable="true" ondragstart="drag(event)" id="item2">
+                <a class="h5 text-decoration-none text-ite" href="">Monthly Girls Nozaki -kun</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/jujutsu-kaisen-vol-1.jpg" alt=""></a>
+              <div class="p-5 bg-ab itm" draggable="true" ondragstart="drag(event)" id="item3">
+                <a class="h5 text-decoration-none text-ite" href="">Jujutsu Kaisen </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/Tokyo-revengers-vol-1.jpg" alt=""></a>
+              <div class="p-5 bg-ab itm" draggable="true" ondragstart="drag(event)" id="item4">
+                <a class="h5 text-decoration-none text-ite" href="">Tokyo Revengers</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/one-piece-vol-1.jpg" alt=""></a>
+              <div class="p-5 bg-ab itm" draggable="true" ondragstart="drag(event)" id="item5">
+                <a class="h5 text-decoration-none text-ite" href="">One Piece</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/my-hero-academia.webp" alt=""></a>
+              <div class="p-5 bg-ab itm" draggable="true" ondragstart="drag(event)" id="item6">
+                <a class="h5 text-decoration-none text-ite" href="">My hero academia</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/kaiju-no-8.webp" alt=""></a>
+              <div class="p-5 bg-ab itm" draggable="true" ondragstart="drag(event)" id="item7">
+                <a class="h5 text-decoration-none text-ite" href="">kaiju no 8</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/spy-family-vol-1.jpg" alt=""></a>
+              <div class="p-5 bg-ab itm" draggable="true" ondragstart="drag(event)" id="item8">
+                <a class="h5 text-decoration-none text-ite" href="">Spy Family</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/mashle-manga-664x1000.jpg.webp" alt=""></a>
+              <div class="p-5 bg-ab itm" draggable="true" ondragstart="drag(event)" id="item9">
+                <a class="h5 text-decoration-none text-ite" href="">mashle</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/the-elusive-samurai-666x1000.jpg.webp"
+                  alt=""></a>
+              <div class="p-5 bg-ab itm" draggable="true" ondragstart="drag(event)" id="item10">
+                <a class="h5 text-decoration-none text-ite" href="">the elusive samurai</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/undead-unluck-manga-664x1000.jpg.webp"
+                  alt=""></a>
+              <div class="p-5 bg-ab itm" draggable="true" ondragstart="drag(event)" id="item11">
+                <a class="h5 text-decoration-none text-ite" href="">undead unluck</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail"
+                  src="/assets/pics/images/to-your-eternity-yoshitoki-oima-700x1000.jpg.webp" alt=""></a>
+              <div class="p-5 bg-ab itm" draggable="true" ondragstart="drag(event)" id="item12">
+                <a class="h5 text-decoration-none text-ite" href="">to your eternity</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/one-punch-man-667x1000.webp" alt=""></a>
+              <div class="p-5 bg-ab itm" draggable="true" ondragstart="drag(event)" id="item13">
+                <a class="h5 text-decoration-none text-ite" href="">one punch man</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/doc-stone-645x1000.webp" alt=""></a>
+              <div class="p-5 bg-ab itm" draggable="true" ondragstart="drag(event)" id="item14">
+                <a class="h5 text-decoration-none text-ite" href="">dr. Stone</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/demon-slayer-667x1000.webp" alt=""></a>
+              <div class="p-5 bg-ab itm" draggable="true" ondragstart="drag(event)" id="item15">
+                <a class="h5 text-decoration-none text-ite" href="">demon Slayer</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/the-promised-neverland-667x1000.jpg"
+                  alt=""></a>
+              <div class="p-5 bg-ab itm" draggable="true" ondragstart="drag(event)" id="item16">
+                <a class="h5 text-decoration-none text-ite" href="">the promised neverland</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/hells-paradise-697x1000.jpg" alt=""></a>
+              <div class="p-5 bg-ab itm" draggable="true" ondragstart="drag(event)" id="item17">
+                <a class="h5 text-decoration-none text-ite" href="">hells paradise</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/call-of-the-night-667x1000.webp"
+                  alt=""></a>
+              <div class="p-5 bg-ab itm" draggable="true" ondragstart="drag(event)" id="item18">
+                <a class="h5 text-decoration-none text-ite" href="">call of the night</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/tokyo-ghoul-697x1000.webp" alt=""></a>
+              <div class="p-5 bg-ab itm" draggable="true" ondragstart="drag(event)" id="item19">
+                <a class="h5 text-decoration-none text-ite" href="">tokyo ghoul</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/Haikyuu-667x1000.webp" alt=""></a>
+              <div class="p-5 bg-ab itm" draggable="true" ondragstart="drag(event)" id="item20">
+                <a class="h5 text-decoration-none text-ite" href="">haikyuu</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/the-limited-zone.webp" alt=""></a>
+              <div class="p-5 bg-ab itm" draggable="true" ondragstart="drag(event)" id="item21">
+                <a class="h5 text-decoration-none text-ite" href="">the limited zone</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/the-remarried-empress.webp" alt=""></a>
+              <div class="p-5 bg-ab itm" draggable="true" ondragstart="drag(event)" id="item22">
+                <a class="h5 text-decoration-none text-ite" href="">the remarried empress</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/killing-stalking-deluxe.webp" alt=""></a>
+              <div class="p-5 bg-ab itm" draggable="true" ondragstart="drag(event)" id="item23">
+                <a class="h5 text-decoration-none text-ite" href="">killing stalking</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="package-item bg-white mb-2">
+              <a href=""><img class="img-thumbnail" src="/assets/pics/images/attack-on-titan.webp" alt=""></a>
+              <div class="p-5 bg-ab itm" draggable="true" ondragstart="drag(event)" id="item24">
+                <a class="h5 text-decoration-none text-ite " href="">attack on titan</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ^Manga section -->
+    <!-- <div class="container-fluid py-5">
+        <div class="container pt-5 pb-3">
+            <div class="text-center mb-3 pb-3"> 
+                <h5 class="text-white text-uppercase " style="letter-spacing: 0px;">Cosplay Dresses</h5>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="destination-item position-relative overflow-hidden mb-2">
+                        <img class="img-fluid" src="/assets/pics/images/ian-schneider-unsplash-passion-motivates-us.jpg" alt="">
+                        <a class="destination-overlay text-white text-decoration-none" href=""> 
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="destination-item position-relative overflow-hidden mb-2">
+                        <img class="img-fluid" src="/assets/pics/images/tamara-bellis-AreMq4SKhPA-unsplash.jpg" alt="">
+                        <a class="destination-overlay text-white text-decoration-none" href=""> 
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="destination-item position-relative overflow-hidden mb-2">
+                        <img class="img-fluid" src="/assets/pics/images/tamara-bellis-68csPWTnafo-unsplash.jpg" alt="">
+                        <a class="destination-overlay text-white text-decoration-none" href=""> 
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="destination-item position-relative overflow-hidden mb-2">
+                        <img class="img-fluid" src="/assets/pics/images/tamara-bellis-WdPfMcpeQas-unsplash.jpg" alt="">
+                        <a class="destination-overlay text-white text-decoration-none" href=""> 
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="destination-item position-relative overflow-hidden mb-2">
+                        <img class="img-fluid" src="/assets/pics/images/charles-chen-unsplash.jpg" alt="">
+                        <a class="destination-overlay text-white text-decoration-none" href=""> 
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="destination-item position-relative overflow-hidden mb-2">
+                        <img class="img-fluid" src="/assets/pics/images/lukas-denier-ED6-unsplash.jpg" alt="">
+                        <a class="destination-overlay text-white text-decoration-none" href=""> 
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- ^Cosplay section -->
+    <div class="left-sidebar">
+      <!-- Left sidebar content, such as navigation menu, logo, etc. -->
+      <div class="account-settings active btn-dark">
+        <i class="fas fa-user"></i>
+        <div class="account-buttons">
+          <button id="account" class="account-button btn-dark"><i class="fas fa-user-circle"></i></button>
+          <button id="preferences" class="account-button btn-dark"><i class="fas fa-cog"></i></button>
+          <button id="settings" class="account-button btn-dark"><i class="fas fa-wrench"></i></button> 
+        </div>
+      </div>
+    </div>  
+    <div class="main-content">
+      <!-- Your main content area goes here -->
+    </div>
+    <div class="ml-5">
+      <div class="mb-3">
+        <h5 class="text-ite" style="letter-spacing: 1px;">Follow Us </h5>
+        <div class="d-flex justify-content-start">
+          <a class="btn btn-lg btn-outline-light mr-2" href="#"><i class="fab fa-twitter"></i></a>
+          <a class="btn btn-lg btn-outline-light mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+          <a class="btn btn-lg btn-outline-light mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a class="btn btn-lg btn-outline-light" href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+    <!-- ^social if even -->
+    <div class="container-md bg-dark text-white border-top py-1 px-sm-3 px-md-5"
+      style="border-color: rgba(256, 256, 256, .1) !important;">
+      <div class="row">
+        <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
+          <p class="m-0 text-white-50">Copyright &copy; <a href="#">fknWebsite</a>. All Rights Reserved.</a>
+          </p>
+        </div>
+        <div class="col-lg-6 text-center text-md-right">
+          <p class="m-0 text-white-50">Designed by <a href="">notMeObviously</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- ^bottom bar -->
+  </div>
+  <a href="#" class="btn btn-outline-light px-0 back-to-top" style="display: inline;">
+    <i class="fa fa-angle-double-up"></i>
+  </a>
+  <script>
+    const cartBar = document.getElementById('cart-bar');
+    const cartHandle = document.getElementById('cart-handle');
+    const mainContent = document.querySelector('main');
+
+    function toggleCartBar() {
+      cartBar.classList.toggle('cart-open');
+      mainContent.classList.toggle('cart-open');
+    }
+    cartHandle.addEventListener('click', toggleCartBar);
+    // Function to handle drag events
+    function drag(event) {
+      event.dataTransfer.setData("text/plain", event.target.id);
+    }
+
+    // Function to handle drop events
+    function drop(event) {
+      event.preventDefault();
+      var itemId = event.dataTransfer.getData("text/plain");
+      var item = document.getElementById(itemId);
+      var cart = document.getElementById("cart-bar");
+      cart.appendChild(item);
+    }
+
+    // Function to handle dragover events
+    function allowDrop(event) {
+      event.preventDefault();
+    }
+
+    // Add event listeners to the cart and items
+    var cart = document.getElementById("cart-bar");
+    cart.addEventListener("drop", drop);
+    cart.addEventListener("dragover", allowDrop);
+
+    var items = document.getElementsByClassName("item");
+    for (var i = 0; i < items.length; i++) {
+      items[i].addEventListener("dragstart", drag);
+    }
+  </script>
+   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const accountSettingsButton = document.querySelector(".account-settings i");
+      const accountButtons = document.querySelector(".account-buttons");
+      let isDropdownVisible = false;
+
+      accountSettingsButton.addEventListener("click", function () {
+        if (isDropdownVisible) {
+          accountButtons.style.opacity = "0"; // Set opacity to 0 to fade out
+          accountButtons.style.visibility = "hidden"; // Hide the buttons
+        } else {
+          accountButtons.style.opacity = "1"; // Set opacity to 1 to fade in
+          accountButtons.style.visibility = "visible"; // Show the buttons
+        }
+        isDropdownVisible = !isDropdownVisible;
+      });
+    });
+
+  </script> 
+  <!-- back to top -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/lib/easing/easing.min.js"></script>
+  <script src="/assets/lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="/assets/lib/tempusdominus/js/moment.min.js"></script>
+  <script src="/assets/lib/tempusdominus/js/moment-timezone.min.js"></script>
+  <script src="/assets/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+  <!-- ^JavaScript Libraries -->
+
+  <script src="/assets/mail/jqBootstrapValidation.min.js"></script>
+  <script src="/assets/mail/contact.js"></script>
+  <!-- ^Contact Javascript File -->
+  <script src="/assets/js/main.js"></script>
+  <!-- Template Javascript -->
+</body>
+
+</html>
