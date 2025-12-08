@@ -196,8 +196,8 @@ function myFunction() {
     var x = document.getElementById("background");
     if (x.classList.contains("bg-color")) {
         x.classList.replace("bg-color", "bg-ab");
-        document.getElementById("one").src = "/assets/pics/images/change-dark-anime-fanatics.jpg";
-        document.getElementById("two").src = "/assets/pics/images/darkAnimeFanatics.jpg";
+        document.getElementById("one").src = "change-dark-anime-fanatics.jpg";
+        document.getElementById("two").src = "darkAnimeFanatics.jpg";
         const d = document.querySelectorAll('.btn-light');
         d.forEach(element => {
             element.classList.replace("btn-light", "btn-dark");
@@ -240,8 +240,8 @@ function myFunction() {
         });
     } else if (x.classList.contains("bg-ab")) {
         x.classList.replace("bg-ab", "bg-color");
-        document.getElementById("one").src = "/assets/pics/images/change-light-anime-fanatics.jpg";
-        document.getElementById("two").src = "/assets/pics/images/light dark anime fanatics.jpg";
+        document.getElementById("one").src = "change-light-anime-fanatics.jpg";
+        document.getElementById("two").src = "light dark anime fanatics.jpg";
         const p = document.querySelectorAll('.btn-dark');
         p.forEach(element => {
             element.classList.replace("btn-dark", "btn-light");
@@ -371,4 +371,5 @@ function myFunction() {
 //     $('#next-btn').click(function() {
 //       owl.trigger('next.owl.carousel');
 //     });
+
 //   });
