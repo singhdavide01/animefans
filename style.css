@@ -155,7 +155,7 @@
   right: -300px;
   width: 300px;
   height: 100vh;
-  background-color: #f6f9ff;
+  /*background-color: #f6f9ff;*/
   /* v111 ^comment */
   transition: right 0.3s ease;
   z-index: 9999;  
