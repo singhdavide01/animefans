@@ -426,7 +426,7 @@
             <div class="package-item bg-white mb-2">
               <a href="/htms/item.html"><img class="img-thumbnail" src="/assets/pics/images/one-piece-vol-1.jpg"></a>
               <div class="p-4 bg-color itm position-relative" draggable="true" ondragstart="drag(event)" id="item4">
-                <a class="h5 text-decoration-none text-black" href="item.html">One Piece</a>
+                <a class="h5 text-decoration-none text-black mangaTitle showMangaButton" data-manga-id="manga5">One Piece</a>
                 <div class="mangaPrice">$48.53</div>
               </div>
             </div>
@@ -842,142 +842,148 @@
     const volumeList = document.getElementById('volumeItems');
 
     const mangaInfo = {
-      manga1: {
-        title: 'Manga 1 Title',
-        imageSrc: 'cha.jpg',
-        details: 'Manga 1 details and description go here.',
-        volumes: ['Manga 1 Volume 1', 'Manga 1 Volume 2', 'Manga 1 Volume 3']
+       manga1: {
+        title: 'Chainsaw Man',
+        imageSrc: '/assets/pics/images/chainsaw man.jpg', 
+        details: 'Chainsaw Man is a Japanese manga series written and illustrated by Tatsuki Fujimoto. Its first arc was serialized in Shueisha\'s shōnen manga magazine Weekly Shōnen Jump from December 2018 to December 2020; its second arc began serialization in Shueisha\'s Shōnen Jump+ app and website in July 2022.',
+        volumes: ['Manga 1 Volume 1', 'Manga 1 Volume 2']
       },
       manga2: {
-        title: 'Manga 2 Title',
-        imageSrc: 'path-to-manga2-image.jpg',
-        details: 'Manga 2 details and description go here.',
+        title: 'Monthly Girls Nozaki -kun',
+        imageSrc: '/assets/pics/images/Monthly-Girls-Nozaki-kun-vol-1.jpg',
+        details: 'Monthly Girls Nozaki-kun is a Japanese four-panel manga series written and illustrated by Izumi Tsubaki. The chapters are serialized online in Gangan Online and have been published in tankōbon volumes by Square Enix. An anime adaptation produced by Doga Kobo aired from July to September 2014.',
         volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
       },
       manga3: {
-        title: 'Manga 3 Title',
-        imageSrc: 'path-to-manga2-image.jpg',
-        details: 'Manga 2 details and description go here.',
+        title: 'Jujutsu Kaisen',
+        imageSrc: '/assets/pics/images/jujutsu-kaisen-vol-1.jpg',
+        details: 'Jujutsu Kaisen is a Japanese manga series written and illustrated by Gege Akutami. It was serialized in Shueisha\'s shōnen manga magazine Weekly Shōnen Jump from March 2018 to September 2024, with its chapters collected in 30 tankōbon volumes.',
         volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
       },
       manga4: {
-        title: 'Manga 4 Title',
-        imageSrc: 'path-to-manga2-image.jpg',
-        details: 'Manga 2 details and description go here.',
+        title: 'Tokyo Revengers',
+        imageSrc: '/assets/pics/images/Tokyo-revengers-vol-1.jpg',
+        details: 'Tokyo Revengers is a Japanese manga series written and illustrated by Ken Wakui. It was serialized in Kodansha\'s shōnen manga magazine Weekly Shōnen Magazine from March 2017 to November 2022, with its chapters collected in 31 tankōbon volumes.',
+        volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
+      },
+      manga5: {
+        title: 'One Piece',
+        imageSrc: '/assets/pics/images/one-piece-vol-1.jpg',
+        details: 'One Piece is a Japanese manga series written and illustrated by Eiichiro Oda. It follows the adventures of Monkey D. Luffy and his crew, the Straw Hat Pirates, as he explores the Grand Line in search of the mythical treasure known as the "One Piece" to become the next King of the Pirates.',
         volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
       },
       manga6: {
-        title: 'Manga 6 Title',
-        imageSrc: 'path-to-manga2-image.jpg',
-        details: 'Manga 2 details and description go here.',
+        title: 'My hero academia',
+        imageSrc: '/assets/pics/images/my-hero-academia.webp',
+        details: 'My Hero Academia is a Japanese manga series written and illustrated by Kōhei Horikoshi. It was serialized in Shueisha\'s shōnen manga magazine Weekly Shōnen Jump from July 2014 to August 2024, with its chapters collected in 42 tankōbon volumes.',
         volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
       },
       manga7: {
-        title: 'Manga 7 Title',
-        imageSrc: 'path-to-manga2-image.jpg',
-        details: 'Manga 2 details and description go here.',
+        title: 'kaiju no 8',
+        imageSrc: '/assets/pics/images/kaiju-no-8.webp',
+        details: 'Kaiju No. 8, also known in English as Monster #8, is a Japanese web manga series written and illustrated by Naoya Matsumoto. It was serialized on Shueisha\'s Shōnen Jump+ app and website from July 2020 to July 2025, with its chapters collected in 16 tankōbon volumes.',
         volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
       },
       manga8: {
-        title: 'Manga 8 Title',
-        imageSrc: 'path-to-manga2-image.jpg',
-        details: 'Manga 2 details and description go here.',
+        title: 'Spy Family',
+        imageSrc: '/assets/pics/images/spy-family-vol-1.jpg',
+        details: 'Spy × Family is a Japanese web manga series written and illustrated by Tatsuya Endo. The story follows Loid Forger, an enigmatic spy who has to "build a family" to execute a mission, not realizing that his adopted daughter is a telepath, and the woman he agrees to marry is a skilled assassin.',
         volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
       },
       manga9: {
-        title: 'Manga 9 Title',
-        imageSrc: 'path-to-manga2-image.jpg',
-        details: 'Manga 2 details and description go here.',
+        title: 'Mashle',
+        imageSrc: '/assets/pics/images/mashle-manga-664x1000.jpg.webp',
+        details: 'Mashle: Magic and Muscles is a Japanese manga series written and illustrated by Hajime Kōmoto. It was serialized in Shueisha\'s shōnen manga magazine Weekly Shōnen Jump from January 2020 to July 2023, with its chapters collected in 18 tankōbon volumes.',
         volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
       },
       manga10: {
-        title: 'Manga 10 Title',
-        imageSrc: 'path-to-manga2-image.jpg',
-        details: 'Manga 2 details and description go here.',
+        title: 'The elusive samurai',
+        imageSrc: '/assets/pics/images/the-elusive-samurai-666x1000.jpg.webp',
+        details: 'The Elusive Samurai is a Japanese manga series written and illustrated by Yusei Matsui. It has been serialized in Shueisha\'s shōnen manga magazine Weekly Shōnen Jump since January 2021, with its chapters collected in 23 tankōbon volumes as of December 2025.',
         volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
       },
       manga11: {
-        title: 'Manga 11 Title',
-        imageSrc: 'path-to-manga2-image.jpg',
-        details: 'Manga 2 details and description go here.',
+        title: 'Undead unluck',
+        imageSrc: '/assets/pics/images/undead-unluck-manga-664x1000.jpg.webp',
+        details: 'Undead Unluck is a Japanese manga series written and illustrated by Yoshifumi Tozuka. It was serialized in Shueisha\'s shōnen manga magazine Weekly Shōnen Jump from January 2020 to January 2025, with its chapters collected in 27 tankōbon volumes. The series is licensed for English release in North America by Viz Media.',
         volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
       },
       manga12: {
-        title: 'Manga 12 Title',
-        imageSrc: 'path-to-manga2-image.jpg',
-        details: 'Manga 2 details and description go here.',
+        title: 'To your eternity',
+        imageSrc: '/assets/pics/images/to-your-eternity-yoshitoki-oima-700x1000.jpg.webp',
+        details: 'To Your Eternity is a Japanese manga series written and illustrated by Yoshitoki Ōima. It was serialized in Kodansha\'s shōnen manga magazine Weekly Shōnen Magazine from November 2016 to June 2025, with its chapters collected in 25 tankōbon volumes.',
         volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
       },
       manga13: {
-        title: 'Manga 13 Title',
-        imageSrc: 'path-to-manga2-image.jpg',
-        details: 'Manga 2 details and description go here.',
+        title: 'one punch man',
+        imageSrc: '/assets/pics/images/one-punch-man-667x1000.webp',
+        details: 'One-Punch Man is a Japanese manga series created by One, originally released as a webcomic in early 2009. It tells the story of Saitama, an independent superhero who, having trained to the point that he can defeat any opponent with a single punch, grows deeply bored from a lack of challenge.',
         volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
       },
       manga14: {
-        title: 'Manga 14 Title',
-        imageSrc: 'path-to-manga2-image.jpg',
-        details: 'Manga 2 details and description go here.',
+        title: 'Dr. Stone',
+        imageSrc: '/assets/pics/images/doc-stone-645x1000.webp',
+        details: 'Dr. Stone is a Japanese manga series written by Riichiro Inagaki and illustrated by the South Korean artist Boichi. It was serialized in Shueisha\'s shōnen manga magazine Weekly Shōnen Jump from March 2017 to March 2022, with its chapters collected in 27 tankōbon volumes.',
         volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
       },
       manga15: {
-        title: 'Manga 15 Title',
-        imageSrc: 'path-to-manga2-image.jpg',
-        details: 'Manga 2 details and description go here.',
+        title: 'Demon Slayer',
+        imageSrc: '/assets/pics/images/demon-slayer-667x1000.webp',
+        details: 'Demon Slayer: Kimetsu no Yaiba is a Japanese manga series written and illustrated by Koyoharu Gotouge. It was serialized in Shueisha\'s shōnen manga magazine Weekly Shōnen Jump from February 2016 to May 2020, with its chapters collected in 23 tankōbon volumes.',
         volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
       },
       manga16: {
-        title: 'Manga 16 Title',
-        imageSrc: 'path-to-manga2-image.jpg',
-        details: 'Manga 2 details and description go here.',
+        title: 'The Promised Neverland',
+        imageSrc: '/assets/pics/images/the-promised-neverland-667x1000.jpg',
+        details: 'The Promised Neverland is a Japanese manga series written by Kaiu Shirai and illustrated by Posuka Demizu. It was serialized in Shueisha\'s shōnen manga magazine Weekly Shōnen Jump from August 2016 to June 2020, with its chapters collected in 20 tankōbon volumes.',
         volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
       },
       manga17: {
-        title: 'Manga 17 Title',
-        imageSrc: 'path-to-manga2-image.jpg',
-        details: 'Manga 2 details and description go here.',
+        title: 'hells paradise',
+        imageSrc: '/assets/pics/images/hells-paradise-697x1000.jpg',
+        details: 'Hell\'s Paradise: Jigokuraku is a Japanese web manga series written and illustrated by Yuji Kaku. It was serialized weekly for free on Shueisha\'s Shōnen Jump+ app and website from January 2018 to January 2021, with its chapters collected in 13 tankōbon volumes.',
         volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
       },
       manga18: {
-        title: 'Manga 18 Title',
-        imageSrc: 'path-to-manga2-image.jpg',
-        details: 'Manga 2 details and description go here.',
+        title: 'call of the night',
+        imageSrc: '/assets/pics/images/call-of-the-night-667x1000.webp',
+        details: 'Call of the Night is a Japanese manga series written and illustrated by Kotoyama. It was serialized in Shogakukan\'s shōnen manga magazine Weekly Shōnen Sunday from August 2019 to January 2024. In North America, the manga is licensed for English release by Viz Media.',
         volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
       },
       manga19: {
-        title: 'Manga 19 Title',
-        imageSrc: 'path-to-manga2-image.jpg',
-        details: 'Manga 2 details and description go here.',
+        title: 'tokyo ghoul',
+        imageSrc: '/assets/pics/images/tokyo-ghoul-697x1000.webp',
+        details: 'Tokyo Ghoul is a Japanese dark fantasy manga series written and illustrated by Sui Ishida. It was serialized in Shueisha\'s seinen manga magazine Weekly Young Jump from September 2011 to September 2014, with its chapters collected in 14 tankōbon volumes.',
         volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
       },
       manga20: {
-        title: 'Manga 20 Title',
-        imageSrc: 'path-to-manga2-image.jpg',
-        details: 'Manga 2 details and description go here.',
+        title: 'haikyuu',
+        imageSrc: '/assets/pics/images/Haikyuu-667x1000.webp',
+        details: 'Haikyu!! is a Japanese manga series written and illustrated by Haruichi Furudate. It was serialized in Shueisha\'s shōnen manga magazine Weekly Shōnen Jump from February 2012 to July 2020, with its chapters collected in 45 tankōbon volumes.',
         volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
       },
       manga21: {
-        title: 'Manga 21 Title',
-        imageSrc: 'path-to-manga2-image.jpg',
-        details: 'Manga 2 details and description go here.',
+        title: 'the limited zone',
+        imageSrc: '/assets/pics/images/the-limited-zone.webp',
+        details: 'The Liminal Zone is a horror manga series by the acclaimed master of horror, Junji Ito, published in English by VIZ Media in 2022, featuring several unsettling, standalone tales like "Weeping Woman" and stories involving the mysterious Hikizuri siblings, exploring themes of death, the afterlife, and strange supernatural phenomena within liminal spaces, available in print and digital formats. ',
         volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
       },
       manga22: {
-        title: 'Manga 22 Title',
-        imageSrc: 'path-to-manga2-image.jpg',
-        details: 'Manga 2 details and description go here.',
+        title: 'The remarried empress',
+        imageSrc: '/assets/pics/images/the-remarried-empress.webp',
+        details: 'The Remarried Empress is a South Korean web novel series written by Alphatart. It was serialized on Naver Corporation\'s web novel platform Naver Web Novel from November 2018 to March 2020, with its individual chapters collected into eight volumes.',
         volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
       },
       manga23: {
-        title: 'Manga 23 Title',
-        imageSrc: 'path-to-manga2-image.jpg',
-        details: 'Manga 2 details and description go here.',
+        title: 'killing stalking',
+        imageSrc: '/assets/pics/images/killing-stalking-deluxe.webp',
+        details: 'Killing Stalking is a South Korean manhwa written and illustrated by Koogi. It was published online in Korean and English by Lezhin Comics and won the ₩100,000,000 Grand Prize Award at the Second Lezhin World Comics Contest. The series has been licensed in English in print format by Seven Seas Entertainment.',
         volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
       },
       manga24: {
-        title: 'Manga 24 Title',
-        imageSrc: 'path-to-manga2-image.jpg',
-        details: 'Manga 2 details and description go here.',
+        title: 'attack on titan',
+        imageSrc: '/assets/pics/images/attack-on-titan.webp',
+        details: 'Attack on Titan is a Japanese manga series written and illustrated by Hajime Isayama. Set in a world where humanity is forced to live in cities surrounded by three enormous walls that protect them from gigantic man-eating humanoids referred to as Titans, the story follows Eren Yeager, an adolescent boy who vows to exterminate the Titans after they bring about the destruction of his hometown and the death of his mother.',
         volumes: ['Manga 2 Volume 1', 'Manga 2 Volume 2']
       }
     };
@@ -1050,4 +1056,5 @@
   <script src="main.js"></script>
 </body>
 </html>
+
 
